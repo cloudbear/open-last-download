@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Open Last Download",
+    "version": "0.1",
+    "description": "Opens the most recent download when you press Ctrl+Enter",
+    "homepage_url": "https://github.com/cloudbear/open-last-download",
+    "icons": {
+        "48": "icons/open_last_download-48.png"
+    },
+    "permissions": [
+        "downloads",
+        "downloads.open"
+    ],
+    "browser_action": {
+        "default_icon": "icons/open_last_download-32.png",
+        "default_title": "Open Last Download",
+        "default_popup":"popup/open_last_download.html"
+    },
+    "background": {
+        "scripts": [
+            "background-script.js"
+        ]
+    }
+}
