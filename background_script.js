@@ -16,8 +16,9 @@ async function search() {
 
   let foundDownload = await browser.downloads.search(searchQuery)
       .then((result) => {
-        console.log("Search found download with id " + result[0].id)
-        console.log(result);
+        let filepath = result[0].filename.split('\\');
+        let filename = filepath[filepath.length-1];
+        console.log(`Search result: newest download is ID#${result[0].id}: ${filename} from ${result[0].url}`);
         return result[0].id;
       });
   
