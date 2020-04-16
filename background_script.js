@@ -61,7 +61,7 @@ browser.commands.onCommand.addListener((commandName) => {
     return;
   }
 
-  console.log(commandName + " received!");
+  console.log(`Received command: ${commandName}`);
 
   if (mostRecentDownload) {
     console.log(`Opening download with ID#${mostRecentDownload}`)
