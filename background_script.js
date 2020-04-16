@@ -60,6 +60,14 @@ browser.downloads.onChanged.addListener((download) => {
   }
 })
 
+browser.downloads.onErased.addListener((downloadId) => {
+  console.log(`Detected erasure of download: ID#${downloadId}`);
+  if (downloadId === mostRecentDownload) {
+    console.log("  That was our most recent download. Calling search()...");
+    search();
+  }
+})
+
 /**
  * Listens for commands sent to the extension.
  * We only have one command right now, so we return early if
