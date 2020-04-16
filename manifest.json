@@ -5,7 +5,7 @@
     "description": "Opens the most recent download when you press Ctrl+Enter",
     "homepage_url": "https://github.com/cloudbear/open-last-download",
     "icons": {
-        "48": "icons/open_last_download-48.png"
+        "48": "icons/icons8-open-file-under-cursor-48-black.png"
     },
     "permissions": [
         "downloads",
