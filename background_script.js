@@ -22,7 +22,6 @@ async function search() {
         return result[0].id;
       });
   
-  console.log(`search() found ${foundDownload}`);
   mostRecentDownload = foundDownload;
 }
 
