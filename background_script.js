@@ -25,6 +25,19 @@ async function search() {
   mostRecentDownload = foundDownload;
 }
 
+function getChangedDownloadProperties(downloadDelta) {
+  const keys = Object.keys(downloadDelta);
+  const changes = [];
+  for (let key of keys) {
+    let property = downloadDelta[key];
+    if (typeof property !== 'object') continue;
+    if ('previous' in property && 'current' in property) {
+      changes.push(key);
+    }
+  }
+  return changes.join(', ');
+}
+
 /**
  * Activated when a property of a download changes.
  * 
@@ -34,6 +47,7 @@ async function search() {
  */
 browser.downloads.onChanged.addListener((download) => {
   console.log(`Detected changed download: ID#${download.id}`);
+  console.log(`..Changed properties: ${getChangedDownloadProperties(download)}`)
   if ("state" in download) {
     if ("complete" === download.state.current) {
       console.log(`Download ID#${download.id} changed state to completed and is now the most recent download.`);
