@@ -1,5 +1,3 @@
-let mostRecentDownload = null;
-
 /**
  * Searches the download manager for the most recently started
  * download that is complete and where the file exists, then
@@ -72,4 +70,5 @@ browser.commands.onCommand.addListener((commandName) => {
   }
 })
 
+let mostRecentDownload = null;
 search();
