@@ -49,6 +49,9 @@ browser.downloads.onChanged.addListener((download) => {
  * that command isn't what was sent.
  * 
  * Opens the download with the ID stored in mostRecentDownload.
+ * 
+ * If the download cannot be opened, it erases it from the
+ * downloads list and runs search() again.
  */
 browser.commands.onCommand.addListener((commandName) => {
   if ("open-last-download" !== commandName) {
@@ -59,7 +62,11 @@ browser.commands.onCommand.addListener((commandName) => {
 
   if (mostRecentDownload) {
     console.log(`Opening download with id ${mostRecentDownload}.`)
-    browser.downloads.open(mostRecentDownload);
+    browser.downloads.open(mostRecentDownload)
+        .catch(() => {
+          browser.downloads.erase({"id": mostRecentDownload})
+             .then(() => search());
+        });
   } else {
     console.log(`No download to open.`);
   }
