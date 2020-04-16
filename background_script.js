@@ -50,13 +50,13 @@ browser.downloads.onChanged.addListener((download) => {
   console.log(`..Changed properties: ${getChangedDownloadProperties(download)}`)
   if ("state" in download) {
     if ("complete" === download.state.current) {
-      console.log(`Download ID#${download.id} changed state to completed and is now the most recent download.`);
+      console.log(`  Download ID#${download.id} changed state to completed and is now the most recent download.`);
       mostRecentDownload = download.id;
     } else {
-      console.log("Not relevant: not completed");
+      console.log("  Not relevant: not completed");
     }
   } else {
-    console.log("Not relevant: state did not change.");
+    console.log("  Not relevant: state did not change.");
   }
 })
 
@@ -78,14 +78,14 @@ browser.commands.onCommand.addListener((commandName) => {
   console.log(`Received command: ${commandName}`);
 
   if (mostRecentDownload) {
-    console.log(`Opening download with ID#${mostRecentDownload}`)
+    console.log(`  Opening download with ID#${mostRecentDownload}`)
     browser.downloads.open(mostRecentDownload)
         .catch(() => {
           browser.downloads.erase({"id": mostRecentDownload})
              .then(() => search());
         });
   } else {
-    console.log(`No download to open.`);
+    console.log(`  No download to open.`);
   }
 })
 
