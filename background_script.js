@@ -81,6 +81,7 @@ browser.commands.onCommand.addListener((commandName) => {
     console.log(`  Opening download with ID#${mostRecentDownload}`)
     browser.downloads.open(mostRecentDownload)
         .catch(() => {
+          console.log("  Could not open file. Repeating search.");
           browser.downloads.erase({"id": mostRecentDownload})
              .then(() => search());
         });
