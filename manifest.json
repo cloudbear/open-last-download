@@ -20,5 +20,13 @@
         "scripts": [
             "background_script.js"
         ]
+    },
+    "commands": {
+        "open-last-download": {
+            "suggested_key": {
+                "default": "Ctrl+F12"
+            },
+            "description": "Send a 'open-last-download' event to the extenstion"
+        }
     }
 }
