@@ -65,7 +65,7 @@ browser.commands.onCommand.addListener((commandName) => {
   console.log(commandName + " received!");
 
   if (mostRecentDownload) {
-    console.log(`Opening download with id ${mostRecentDownload}.`)
+    console.log(`Opening download with ID#${mostRecentDownload}`)
     browser.downloads.open(mostRecentDownload)
         .catch(() => {
           browser.downloads.erase({"id": mostRecentDownload})
