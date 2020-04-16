@@ -34,11 +34,16 @@ async function search() {
  * ID of the download.
  */
 browser.downloads.onChanged.addListener((download) => {
-  console.log(download);
+  console.log(`Detected changed download: ID#${download.id}`);
   if ("state" in download) {
     if ("complete" === download.state.current) {
+      console.log(`Download ID#${download.id} changed state to completed and is now the most recent download.`);
       mostRecentDownload = download.id;
+    } else {
+      console.log("Not relevant: not completed");
     }
+  } else {
+    console.log("Not relevant: state did not change.");
   }
 })
 
