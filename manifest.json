@@ -12,9 +12,14 @@
         "downloads.open"
     ],
     "browser_action": {
-        "default_icon": "icons/open_last_download-32.png",
+        "default_icon": "icons/icons8-open-file-under-cursor-32-black.png",
         "default_title": "Open Last Download",
-        "default_popup":"popup/open_last_download.html"
+        "default_popup":"popup/open_last_download.html",
+        "theme_icons": [{
+            "light": "icons/icons8-open-file-under-cursor-32-white.png",
+            "dark": "icons/icons8-open-file-under-cursor-32-black.png",
+            "size": 32
+          }]
     },
     "background": {
         "scripts": [
